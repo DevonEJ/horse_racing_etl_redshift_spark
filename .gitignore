@@ -1,0 +1,5 @@
+*.ipynb
+*idea*
+*.cache*
+*.pycache
+
