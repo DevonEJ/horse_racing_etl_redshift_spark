@@ -1,4 +1,4 @@
-# ETL Pipeline for Horse Racing Data
+# ETL Pipeline for Horse Racing Data - README WIP
 
 ## Project Overview
 
