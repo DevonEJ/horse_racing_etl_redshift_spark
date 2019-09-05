@@ -3,4 +3,4 @@
 *.cache*
 *.pycache
 *.pyc
-*checkpoints*
+*checkpoint*
