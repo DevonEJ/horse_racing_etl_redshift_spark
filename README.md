@@ -242,13 +242,137 @@ The Pony Punts Analytics Team are fairly sophisticated, and so the decision was 
 
 The following are the schemas for the Analytics tables;
 
-#### Customers table
-
-
-
 #### Race Horses table
 
+*Provides the Analytics team with a consolidated view of the race horses that Pony Punts customers are interested in, along with their performance in recent races, their handicap details, and form ratings*
+
+- collected *datetime*
+- market_id *decimal*
+- position *decimal*
+- place_paid *boolean*
+- margin *decimal*
+- horse_id *decimal*
+- rider_id *decimal*
+- handicap_weight *decimal*
+- number *decimal*
+- barrier *decimal*
+- blinkers *boolean*
+- emergency *boolean*
+- form_rating_one *decimal*
+- form_rating_two *decimal*
+- form_rating_three *decimal*
+- last_five_starts *text*
+- favourite_odds_win *boolean*
+- favourite_odds_place *boolean*
+- favourite_pool_win *boolean*
+- favourite_pool_place *boolean*
+- tip_one_win *boolean*
+- tip_one_place *boolean*
+- tip_two_win *boolean*
+- tip_two_place *boolean*
+- tip_three_win *boolean*
+- tip_three_place *boolean*
+- tip_four_win *boolean*
+- tip_four_place *boolean*
+- tip_five_win *boolean*
+- tip_five_place *boolean*
+- tip_six_win *boolean*
+- tip_six_place *boolean*
+- tip_seven_win *boolean*
+- tip_seven_place *boolean*
+- tip_eight_win *boolean*
+- tip_eight_place *boolean*
+- tip_nine_win *boolean*
+- tip_nine_place *boolean*
+- age *decimal*
+- sex_id *decimal*
+- prize_money *decimal*
+
+***
+
+#### Customers table
+
+*Provides the Analytics Team with details about Pony Punts' premium customers, to allow for the personalisation of service for these customers, and to give insights into their favourite tracks, horses, and odds*
+
+- id *integer*
+- bettype *text*
+- date *datetime*
+- tipster *text*
+- track *text*
+- tipsteractive *boolean*
+- odds *decimal*
+- result *text*
+
+***
+
 #### Races table
+
+*Provides a consolidated view of individual races, including the conditions, weather, state of the ground, and the amount of money in the purse, for a given horse_id, allowing the Analytics team to analyse factors impacting the performance against multiple dimensions*
+
+- market_id *decimal*
+- horse_id *decimal*
+- runner_number *decimal*
+- last_twenty_starts *text*
+- class_level_id *decimal*
+- field_strength *decimal*
+- days_since_last_run* decimal*
+- runs_since_spell *boolean*
+- overall_starts *decimal*
+- overall_wins *decimal*
+- overall_places *decimal*
+- track_starts *decimal*
+- track_wins *decimal*
+- track_places *decimal*
+- firm_starts *decimal*
+- firm_wins *decimal*
+- firm_places *decimal*
+- good_starts *decimal*
+- good_wins *decimal*
+- good_places *decimal*
+- dead_starts *decimal*
+- dead_wins *decimal*
+- dead_places *decimal*
+- slow_starts *decimal*
+- slow_wins *decimal*
+- slow_places *decimal*
+- soft_starts *decimal*
+- soft_wins *decimal*
+- soft_places *decimal*
+- heavy_starts *decimal*
+- heavy_wins *decimal*
+- heavy_places *decimal*
+- distance_starts *decimal,
+- distance_wins *decimal*
+- distance_places *decimal*
+- class_same_starts *decimal*
+- class_same_wins *decimal*
+- class_same_places *decimal*
+- class_stronger_starts *decimal*
+- class_stronger_wins *decimal*
+- class_stronger_places *decimal*
+- first_up_starts *decimal*
+- first_up_wins *decimal*
+- first_up_places *decimal*
+- second_up_starts *decimal*
+- second_up_wins *decimal*
+- second_up_places *decimal*
+- track_distance_starts *decimal*
+- track_distance_wins *decimal*
+- track_distance_places *decimal*
+- start_time *text*
+- venue_id *decimal*
+- race_number *decimal*
+- "distance(m)" *decimal*
+- condition_id *decimal*
+- weather_id *decimal*
+- total_pool_win_one *decimal*
+- total_pool_place_one *decimal*
+- total_pool_win_two *decimal*
+- total_pool_place_two *decimal*
+- total_pool_win_three *decimal*
+- total_pool_place_three *decimal*
+- weather *text*
+- conditions *text*
  
  
 ## Example Analysis
