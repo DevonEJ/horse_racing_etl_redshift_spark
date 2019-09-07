@@ -1,10 +1,30 @@
-# ETL Pipeline for Horse Racing Data - README WIP
+# ETL Pipeline; Pony Punts' Weekly Betting Insights Pipeline
+
+*Udacity Data Engineering Nanodegree capstone project.*
 
 ## Project Overview
 
+Pony Punts is a fictional horse racing betting statistics company, which combines data sourced via numerous web-based sources, which are then analysed by the in-house Analytics Team, to provide weekly betting insights and tips for its customers.
+
 ### Project Purpose
 
- - Explain what end use cases you'd like to prepare the data for (e.g., analytics table, app back-end, source-of-truth database, etc.)
+The purpose of the ETL pipeline, is to run once on a weekly basis, to transform datasets curated and stored in Amazon S3, transforming, and eventually loading the data as a set of 3 analytics tables used by the Pony Punts Analytics Team to run their analysis queries in SQL.
+
+The pipeline is written primarily in Python, and also uses PySpark for transformations, and SQL to interact with Redshift via <code> pyodbc </code> . The <code> boto3 </code> Python package is used to interact with Amazon S3.
+
+The high-level pipeline steps are as follows;
+
+1. A set of 9 CSV files are stored in Amazon S3, along with one JSON file
+2. A Redshift cluster exists, and a SQL script creates a set of 9 staging tables within
+3. SQL scripts execute COPY commands to load each of the 9 CSV files into their respective Redshift staging tables
+4. A Python script reads the JSON file into memory as a string
+5. PySpark is used to convert each of the files into a PySpark dataframe
+6. Transformation is carried out in PySpark to clean and join the dataframes, combining to create 3 final analytics dataframes
+7. The final analytics dataframes are written to S3 as CSV files
+8. A SQL script creates the analytics tables in Redshift
+9. SQL scripts execute COPY commands to load the final CSV files into the analytics tables
+10.The analytics tables are now ready for use by the Pony Punts Analytics Team
+
 
 ### Input Data Dictionaries
 
