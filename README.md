@@ -43,24 +43,24 @@ These CSV files represent a normalised dataset on horse racing data. The **forms
 ---
 
 **markets.csv** - *Details about specific races - 3316 rows*
-id
-start_time 
-    *   what time did the race start, datetime in UTC
-venue_id
-race_number
-distance(m)
-condition_id 
-    *   track condition, see conditions.csv
-weather_id 
-    *   weather on day, see weathers.csv
-total_pool_win_one 
-    *   rough $ amount wagered across all runners for win market
-total_pool_place_one 
-    *   rough $ amount wagered across all runners for place market
-total_pool_win_two
-total_pool_place_two
-total_pool_win_three
-total_pool_place_three
+-id
+-start_time 
+-    *   what time did the race start, datetime in UTC
+-venue_id
+-race_number
+-distance(m)
+-condition_id 
+-    *   track condition, see conditions.csv
+-weather_id 
+-    *   weather on day, see weathers.csv
+-total_pool_win_one 
+-    *   rough $ amount wagered across all runners for win market
+-total_pool_place_one 
+-    *   rough $ amount wagered across all runners for place market
+-total_pool_win_two
+-total_pool_place_two
+-total_pool_win_three
+-total_pool_place_three
 
 ***
 
