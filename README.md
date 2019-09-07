@@ -13,7 +13,7 @@ The purpose of the ETL pipeline, is to run once on a weekly basis, to transform 
 
 ### Input Data Schemas
 
-*The 'Horses for Courses' datasets used in this project were downloaded originally from [data.world](https://data.world/sya/horses-for-courses) and [Tipster Bets](https://data.world/data-society/horse-racing-tipster-bets)*
+*The horse racing datasets used in this project were downloaded originally from [data.world](https://data.world/sya/horses-for-courses) and [Tipster Bets](https://data.world/data-society/horse-racing-tipster-bets)*
 
 #### CSV Files
 
