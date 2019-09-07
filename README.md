@@ -1,4 +1,4 @@
-# ETL Pipeline; Pony Punts' Weekly Betting Insights Pipeline
+# ETL Pipeline; Pony Punts Weekly Betting Insights Pipeline
 
 *Udacity Data Engineering Nanodegree capstone project.*
 
