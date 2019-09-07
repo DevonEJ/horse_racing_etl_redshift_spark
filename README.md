@@ -219,6 +219,12 @@ There is 1 JSON file used as input data - the schema has been copied here from t
 
 The pipeline is written primarily in Python, and also uses PySpark for transformations, and SQL to interact with Redshift via <code> pyodbc </code> . The <code> boto3 </code> Python package is used to interact with Amazon S3.
 
+The cloud-based architecture was chosen to allow for easy integration with the pipelnie and multiple other services, for example, in the case of future expansion of the business, other AWS services can easily be added to allow for scaling.
+
+Both of the existing choices, in Redshift and S3, can also handle far greater volumes than currently running through the pipeline, if required.
+
+In addition, Spark has been used to handle all of the data transformations, due to its speed when compared to purely Pandas-based processing on multiple larger datasets, and again to allow to allow for future scaling easily with no code changes being required.
+
 The high-level pipeline steps are as follows;
 
 1. A set of 9 CSV files are stored in Amazon S3, along with one JSON file
@@ -375,5 +381,29 @@ The following are the schemas for the Analytics tables;
 - conditions *text*
  
  
-## Example Analysis
+## Future Considerations
+
+The project involves considering how the pipeline may need to change under the following expansion scenarios;
+
+**The data was increased by 100x.**
+
+Due to the nature of the pipeline in using PySpark for all of the data transformations, the majority of the existing code would be fine to cope with a greatly increased dataset size.
+
+However, currently the pipeline relies on pyodbc and boto3 to read and write CSV and JSON files from and to Amazon S3 and Redshift, and this may cause a bottleneck when dealing with big data. 
+
+In this case, it would be worth considering moving the pipeline to make use of Amazon EMR, storing the data in S3, as at present, and processing it using Spark without relying on the intermediate I/O operations.
+
+This would also open up the possibility of Pony Punts' Analytics Team using Spark SQL to interact with the data, instead of only using the final Redshift tables and their own BI tools.
+
+
+**The pipelines would be run on a daily basis by 7 am every day.**
+
+Currently, the pipeline must be run manually by a Data Engineer on the agreed weekly schedule.
+
+If this schedule were to be increased, it would be worth considering the use of a tool like Airflow, to automate the scheduling of the pipleine, and crucial elements like re-tries and alerting in the case of pipeline failure.
+
+
+
+
+**The database needed to be accessed by 100+ people.**
 
