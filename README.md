@@ -41,7 +41,6 @@ There are 9 CSV files used as input data - their schemas have been copied here f
 These CSV files represent a normalised dataset on horse racing data. The **forms.csv** is the 'face table', whilst the other files represent the dimensions of the dataset.
 
 ---
-
 **markets.csv** - *Details about specific races - 3316 rows*
 - id
 - start_time - what time did the race start, datetime in UTC
@@ -58,11 +57,39 @@ These CSV files represent a normalised dataset on horse racing data. The **forms
 - total_pool_place_three
 
 ***
-
 **horses.csv** - *Details about race horses*
 
-***
+- id
+- age
+- sex_id - see horse_sexes.csv
+- sire_id - not related to horses.id, there is another table called horse_sires that is not present here
+- dam_id - not related to horses.id, there is another table called horse_dams that is not present here
+- prize_money - total aggregate prize money
 
+***
+**odds.csv** - *(collected for every runner 10 minutes out from race start until race starts)*
+
+- runner_id
+- collected _what time was this row created/data collected, datetime in UTC_
+- odds_one_win
+- from odds source, win odds
+- odds_one_win_wagered - from odds source, rough $ amount wagered on win
+- odds_one_place - from odds source, place odds
+- odds_one_place_wagered - from odds source, rough $ amount wagered on place
+- odds_two_win
+- odds_two_win_wagered
+- odds_two_place
+- odds_two_place_wagered
+- odds_three_win
+- odds_three_win_wagered
+- odds_three_place
+- odds_three_place_wagered
+- odds_four_win
+- odds_four_win_wagered
+- odds_four_place
+- odds_four_place_wagered
+
+***
 **runners.csv** - *Details about horses' performance in races*
 
 - id
@@ -106,7 +133,86 @@ These CSV files represent a normalised dataset on horse racing data. The **forms
 - tip_nine_win
 - tip_nine_place
 
+***
+**forms.csv** - *main fact file*
 
+- collected - what time was this row created/data collected, datetime in UTC
+- market_id
+- horse_id
+- runner_number
+- last_twenty_starts -e.g. f9x726x753x92222x35 - f = failed to finish, 7 = finished 7th, 6 = finished 6th, 7 = finished 7th, x = runner was scratched
+- class_level_id - 1 = eq (in same class as other horses) - 2 = up (up in class) - 3 = dn (down in class)
+- field_strength
+- days_since_last_run
+- runs_since_spell
+- overall_starts
+- overall_wins
+- overall_places
+- track_starts
+- track_wins
+- track_places
+- firm_starts
+- firm_wins
+- firm_places
+- good_starts
+- good_wins
+- good_places
+- dead_starts
+- dead_wins
+- dead_places
+- slow_starts
+- slow_wins
+- slow_places
+- soft_starts
+- soft_wins
+- soft_places
+- heavy_starts
+- heavy_wins
+- heavy_places
+- distance_starts
+- distance_wins
+- distance_places
+- class_same_starts
+- class_same_wins
+- class_same_places
+- class_stronger_starts
+- class_stronger_wins
+- class_stronger_places
+- first_up_starts
+- first_up_wins
+- first_up_places
+- second_up_starts
+- second_up_wins
+- second_up_places
+- track_distance_starts
+- track_distance_wins
+- track_distance_places
+
+***
+**conditions.csv** - *Describes running conditions - e.g. good, firm, etc.*
+
+- id
+- name
+
+***
+**weathers.csv**
+
+- id
+- name
+
+***
+**riders.csv** - *Describes sex of the jockey*
+
+- id
+- sex
+
+***
+**horse_sexes.csv**
+
+- id
+- name
+
+***
 
 ## ETL Pipeline
 
