@@ -57,7 +57,7 @@ These CSV files represent a normalised dataset on horse racing data. The **forms
 - total_pool_place_three
 
 ***
-**horses.csv** - *Details about race horses*
+**horses.csv** - *Details about race horses - 14113 rows*
 
 - id
 - age
@@ -67,7 +67,7 @@ These CSV files represent a normalised dataset on horse racing data. The **forms
 - prize_money - total aggregate prize money
 
 ***
-**odds.csv** - *(collected for every runner 10 minutes out from race start until race starts)*
+**odds.csv** - *(collected for every runner 10 minutes out from race start until race starts) - 410023 rows*
 
 - runner_id
 - collected _what time was this row created/data collected, datetime in UTC_
@@ -90,7 +90,7 @@ These CSV files represent a normalised dataset on horse racing data. The **forms
 - odds_four_place_wagered
 
 ***
-**runners.csv** - *Details about horses' performance in races*
+**runners.csv** - *Details about horses' performance in races - 44428 rows*
 
 - id
 - collected - what time was this row created/data collected, datetime in UTC
@@ -134,7 +134,7 @@ These CSV files represent a normalised dataset on horse racing data. The **forms
 - tip_nine_place
 
 ***
-**forms.csv** - *main fact file*
+**forms.csv** - *main fact file - 43293 rows*
 
 - collected - what time was this row created/data collected, datetime in UTC
 - market_id
@@ -189,25 +189,25 @@ These CSV files represent a normalised dataset on horse racing data. The **forms
 - track_distance_places
 
 ***
-**conditions.csv** - *Describes running conditions - e.g. good, firm, etc.*
+**conditions.csv** - *Describes running conditions - e.g. good, firm, etc. - 12 rows*
 
 - id
 - name
 
 ***
-**weathers.csv**
+**weathers.csv**- *4 rows*
 
 - id
 - name
 
 ***
-**riders.csv** - *Describes sex of the jockey*
+**riders.csv** - *Describes sex of the jockey - 1025 rows*
 
 - id
 - sex
 
 ***
-**horse_sexes.csv**
+**horse_sexes.csv** - *6 rows*
 
 - id
 - name
@@ -219,7 +219,7 @@ These CSV files represent a normalised dataset on horse racing data. The **forms
 There is 1 JSON file used as input data - the schema has been copied here from the data.world website page which describes this dataset, and is linked to above.
 
 ***
-**tips.json** - *Details on punters*
+**tips.json** - *Details on punters - 38249 records*
 
 - UID - Unique ID.
 - ID - Each tipsters bets are kept in date and time order with the ID being incremented for each new bet, for each tipster.
