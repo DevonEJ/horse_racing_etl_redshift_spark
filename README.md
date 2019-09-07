@@ -32,7 +32,7 @@ Logging has also been implemented to allow quick and easy resolution of any pipe
 
 ### Input Data Schemas
 
-*The 'Horses for Courses' datasets used in this project were downloaded originally from [data.world](https://data.world/sya/horses-for-courses) Also Tipster Bets - https://data.world/data-society/horse-racing-tipster-bets*
+*The 'Horses for Courses' datasets used in this project were downloaded originally from [data.world](https://data.world/sya/horses-for-courses) and [Tipster Bets](https://data.world/data-society/horse-racing-tipster-bets)*
 
 #### CSV Files
 
@@ -61,6 +61,50 @@ These CSV files represent a normalised dataset on horse racing data. The **forms
 
 **horses.csv** - *Details about race horses*
 
+***
+
+**runners.csv** - *Details about horses' performance in races*
+
+- id
+- collected - what time was this row created/data collected, datetime in UTC
+- market_id
+- position - Will either be 1,2,3,4,5,6 etc or 0/null if the horse was scratched or failed to finish - If all positions for a market_id are null it means we were unable to match up the positional data for this market
+- place_paid - Will either be 1/0 or null - If you see a race that only has 2 booleans of 1 it means that the race only paid out places on the first two positions
+- margin - If the runner didnt win, how many lengths behind the 1st place was it
+- horse_id - see horses.csv
+- trainer_id
+- rider_id - see riders.csv
+- handicap_weight
+- number
+- barrier
+- blinkers
+- emergency - did it come into the race at the last minute
+- form_rating_one
+- form_rating_two
+- form_rating_three
+- last_five_starts
+- favourite_odds_win - from one of the odds sources, will it win - true/false
+- favourite_odds_place - from one of the odds sources, will it win - true/false
+- favourite_pool_win
+- favourite_pool_place
+- tip_one_win - from a tipster, will it win - true/false
+- tip_one_place - from a tipster, will it place - true/false
+- tip_two_win
+- tip_two_place
+- tip_three_win
+- tip_three_place
+- tip_four_win
+- tip_four_place
+- tip_five_win
+- tip_five_place
+- tip_six_win
+- tip_six_place
+- tip_seven_win
+- tip_seven_place
+- tip_eight_win
+- tip_eight_place
+- tip_nine_win
+- tip_nine_place
 
 
 
