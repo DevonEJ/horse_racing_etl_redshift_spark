@@ -402,8 +402,11 @@ Currently, the pipeline must be run manually by a Data Engineer on the agreed we
 
 If this schedule were to be increased, it would be worth considering the use of a tool like Airflow, to automate the scheduling of the pipleine, and crucial elements like re-tries and alerting in the case of pipeline failure.
 
-
+This would require refactoring of the existing codebase to integrate Airflow, but is likely to pay-off long-term in providing easier extensibility and interoperability with a multitude of different databases and cloud services, via Airflow's operators.
 
 
 **The database needed to be accessed by 100+ people.**
 
+If the Pony Punts team were to grow, and the number of database users needed to increase, the company could make use of AWS' IAM services to manage access to the database.
+
+This would allow the setting up of security groups and roles, to ensure, for example, that the Analytics Team can only see tables relevant to their work, whilst other tables could exist in the database for other teams simultaneously. 
