@@ -17,22 +17,56 @@ The high-level pipeline steps are as follows;
 1. A set of 9 CSV files are stored in Amazon S3, along with one JSON file
 2. A Redshift cluster exists, and a SQL script creates a set of 9 staging tables within
 3. SQL scripts execute COPY commands to load each of the 9 CSV files into their respective Redshift staging tables
-4. A Python script reads the JSON file into memory as a string
-5. PySpark is used to convert each of the files into a PySpark dataframe
-6. Transformation is carried out in PySpark to clean and join the dataframes, combining to create 3 final analytics dataframes
+4. A Python script reads the JSON file from S3
+5. PySpark is used to convert each of staging tables into a PySpark dataframe
+6. Transformation is carried out in PySpark to clean and join the dataframes, combining to create 3 final analytics dataframes; <code> customers </code> , <code> race_horses </code> , and <code> races </code>
 7. The final analytics dataframes are written to S3 as CSV files
 8. A SQL script creates the analytics tables in Redshift
 9. SQL scripts execute COPY commands to load the final CSV files into the analytics tables
 10.The analytics tables are now ready for use by the Pony Punts Analytics Team
 
+Validation and data quality checks are built-in to the pipeline, checking, for example that row counts for staging and analytics tables are as expected at each stage of the pipeline.
 
-### Input Data Dictionaries
+Logging has also been implemented to allow quick and easy resolution of any pipeline failures.
 
--- Something on each file, including file size and row count
 
-The 'Horses for Courses' datasets used in this project were downloaded originally from [data.world](https://data.world/sya/horses-for-courses)
+### Input Data Schemas
 
-Also Tipster Bets - https://data.world/data-society/horse-racing-tipster-bets
+*The 'Horses for Courses' datasets used in this project were downloaded originally from [data.world](https://data.world/sya/horses-for-courses) Also Tipster Bets - https://data.world/data-society/horse-racing-tipster-bets*
+
+#### CSV Files
+
+There are 9 CSV files used as input data - their schemas have been copied here from the data.world website page which describes this dataset, and is linked to above.
+
+These CSV files represent a normalised dataset on horse racing data. The **forms.csv** is the 'face table', whilst the other files represent the dimensions of the dataset.
+
+---
+
+**markets.csv** - *Details about specific races - 3316 rows*
+id
+start_time 
+    *   what time did the race start, datetime in UTC
+venue_id
+race_number
+distance(m)
+condition_id 
+    *   track condition, see conditions.csv
+weather_id 
+    *   weather on day, see weathers.csv
+total_pool_win_one 
+    *   rough $ amount wagered across all runners for win market
+total_pool_place_one 
+    *   rough $ amount wagered across all runners for place market
+total_pool_win_two
+total_pool_place_two
+total_pool_win_three
+total_pool_place_three
+
+***
+
+**horses.csv** - *Details about race horses*
+
+
 
 
 ## ETL Pipeline
