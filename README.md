@@ -214,6 +214,26 @@ These CSV files represent a normalised dataset on horse racing data. The **forms
 
 ***
 
+#### JSON File
+
+There is 1 JSON file used as input data - the schema has been copied here from the data.world website page which describes this dataset, and is linked to above.
+
+***
+**tips.json** - *Details on punters*
+
+- UID - Unique ID.
+- ID - Each tipsters bets are kept in date and time order with the ID being incremented for each new bet, for each tipster.
+- Tipster - The name of the tipster. Each tipsters bets are in order, followed by the next tipsters bets
+- Date - The date of the race.
+- Track - The name of the track.
+- Horse - The name of the horse.
+- Bet Type - Is the bet a 'Win' bet or an 'Each Way' bet.
+- Odds - The odds that the tipster presenting the bet say they got for the bet.
+- Result - Did the bet Win or Lose.
+- Tipster Active - Is the tipster active - true or false
+
+***
+
 ## ETL Pipeline
 
 TBC
